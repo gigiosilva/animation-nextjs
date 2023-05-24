@@ -42,8 +42,8 @@ export default function Home() {
         <Circle 
           zIndex={-1}
           top={circlePosition.y} left={circlePosition.x} position='absolute' size='15px' bg='tomato' color='white' 
-          transition={'all .5s ease-in-out'}
-          transitionTimingFunction={'cubic-bezier(1.000,0.440,0.840,0.165)'}
+          transition={'all .8s ease-in-out'}
+          transitionTimingFunction={'cubic-bezier(1.000,0.440,0.840,0.500)'}
           onTransitionEnd={() => {
             setCirclePosition(undefined);
             setAnimation(shakeAnimation);
