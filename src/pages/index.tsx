@@ -15,13 +15,15 @@ export default function Home() {
   const boxRef = useRef(null);
 
   const handleClick = (event) => {
-    const { clientX, clientY } = event;
-    const newCircle = { x: clientX, y: clientY };
+    if (circlePosition) return;
+
+    const { top, left, width, height } = event.target.getBoundingClientRect();
+    const newCircle = { x: left + (width/2), y: top + (height/2) };
 
     const boxElement: any = boxRef.current;
     if (boxElement) {
-      const { top, left } = boxElement.getBoundingClientRect();
-      const newPosition = { x: left, y: top };
+      const { top, left, width, height } = boxElement.getBoundingClientRect();
+      const newPosition = { x: left + (width/2), y: top + (height/2) };
       setTimeout(() => {
         setCirclePosition(newPosition);
       }, 100);
